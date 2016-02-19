@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://localhost:2000/TFG/CambPuntuales -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>
+		CakePHP: the rapid development php framework:
+		CambPuntuales	</title>
+	<link href="http://localhost:2000/TFG/favicon.ico" type="image/x-icon" rel="icon"><link href="http://localhost:2000/TFG/favicon.ico" type="image/x-icon" rel="shortcut icon"><link rel="stylesheet" type="text/css" href="./CakePHP_ the rapid development php framework_ CambPuntuales_files/cake.generic.css"><link rel="stylesheet" type="text/css" href="./CakePHP_ the rapid development php framework_ CambPuntuales_files/jquery-ui.css">
+	<script type="text/javascript" src="./CakePHP_ the rapid development php framework_ CambPuntuales_files/jquery.js"></script>
+	<script type="text/javascript" src="./CakePHP_ the rapid development php framework_ CambPuntuales_files/jquery-ui.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1><a href="http://cakephp.org/">CakePHP: the rapid development php framework</a></h1>
+		</div>
+		<div id="content">
+
+			<div id="flashMessage" class="message">Ya se ha registrado un cambio de tutoría con los mismos datos que los indicados</div>
+
+			<h1 align="center"> Lista de cambios puntuales </h1>
+
+<ul>
+	entra<li> <pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921dde6d9-trace&#39;).style.display = (document.getElementById(&#39;cakeErr569f921dde6d9-trace&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;);"><b>Notice</b> (8)</a>: Undefined index: nombreP [<b>APP\View\CambPuntuales\index.ctp</b>, line <b>25</b>]<div id="cakeErr569f921dde6d9-trace" class="cake-stack-trace"><a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921dde6d9-code&#39;).style.display = (document.getElementById(&#39;cakeErr569f921dde6d9-code&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;)">Code</a> <a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921dde6d9-context&#39;).style.display = (document.getElementById(&#39;cakeErr569f921dde6d9-context&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;)">Context</a><pre id="cakeErr569f921dde6d9-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'entra'</span><span style="color: #007700">;
+</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&gt;&lt;li&gt;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'nombreP'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'apellidosP'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;día&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">$dia&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;tutorías&nbsp;de&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;asa'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;son&nbsp;desde&nbsp;las&nbsp;'</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'hora_inicio'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">':'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'minuto_inicio'</span><span style="color: #007700">].&nbsp;</span><span style="color: #DD0000">'&nbsp;hasta&nbsp;las&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'hora_fin'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">':'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'minuto_fin'</span><span style="color: #007700">];&nbsp;
+</span></span></code></span></pre><pre id="cakeErr569f921dde6d9-context" class="cake-context" style="display: none;">$viewFile = 'C:\xampp\htdocs\TFG\app\View\CambPuntuales\index.ctp'
+$dataForView = array(
+	'tutorias' =&gt; array(
+		(int) 0 =&gt; array(
+			'CambPuntual' =&gt; array(
+				[maximum depth reached]
+			),
+			'Tutoria' =&gt; array(
+				[maximum depth reached]
+			),
+			'Profesor' =&gt; array(
+				[maximum depth reached]
+			)
+		),
+		(int) 1 =&gt; array(
+			'CambPuntual' =&gt; array(
+				[maximum depth reached]
+			),
+			'Tutoria' =&gt; array(
+				[maximum depth reached]
+			),
+			'Profesor' =&gt; array(
+				[maximum depth reached]
+			)
+		)
+	)
+)
+$tutorias = array(
+	(int) 0 =&gt; array(
+		'CambPuntual' =&gt; array(
+			'id' =&gt; '24',
+			'tutoria_id' =&gt; '3',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; '2016-01-15',
+			'hora_inicio' =&gt; '10',
+			'hora_fin' =&gt; '12',
+			'despacho' =&gt; '2',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '0'
+		),
+		'Tutoria' =&gt; array(
+			'id' =&gt; '3',
+			'asignatura_id' =&gt; '1',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; 'martes',
+			'hora_inicio' =&gt; '9',
+			'hora_fin' =&gt; '14',
+			'despacho' =&gt; '31',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '30'
+		),
+		'Profesor' =&gt; array(
+			'id' =&gt; '7',
+			'nombreP' =&gt; 'miguel ',
+			'apellidosP' =&gt; 'reboiro jato',
+			'tipoUsuario' =&gt; 'profesor',
+			'usuarioP' =&gt; 'jato',
+			'passP' =&gt; 'jato'
+		)
+	),
+	(int) 1 =&gt; array(
+		'CambPuntual' =&gt; array(
+			'id' =&gt; '25',
+			'tutoria_id' =&gt; '3',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; '0000-00-00',
+			'hora_inicio' =&gt; '10',
+			'hora_fin' =&gt; '12',
+			'despacho' =&gt; '2',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '0'
+		),
+		'Tutoria' =&gt; array(
+			'id' =&gt; '3',
+			'asignatura_id' =&gt; '1',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; 'martes',
+			'hora_inicio' =&gt; '9',
+			'hora_fin' =&gt; '14',
+			'despacho' =&gt; '31',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '30'
+		),
+		'Profesor' =&gt; array(
+			'id' =&gt; '7',
+			'nombreP' =&gt; 'miguel ',
+			'apellidosP' =&gt; 'reboiro jato',
+			'tipoUsuario' =&gt; 'profesor',
+			'usuarioP' =&gt; 'jato',
+			'passP' =&gt; 'jato'
+		)
+	)
+)
+$userData = null
+$userType = 'admin'
+$valor = array(
+	'CambPuntual' =&gt; array(
+		'id' =&gt; '24',
+		'tutoria_id' =&gt; '3',
+		'profesor_id' =&gt; '7',
+		'dia' =&gt; '2016-01-15',
+		'hora_inicio' =&gt; '10',
+		'hora_fin' =&gt; '12',
+		'despacho' =&gt; '2',
+		'minuto_inicio' =&gt; '0',
+		'minuto_fin' =&gt; '0'
+	),
+	'Tutoria' =&gt; array(
+		'id' =&gt; '3',
+		'asignatura_id' =&gt; '1',
+		'profesor_id' =&gt; '7',
+		'dia' =&gt; 'martes',
+		'hora_inicio' =&gt; '9',
+		'hora_fin' =&gt; '14',
+		'despacho' =&gt; '31',
+		'minuto_inicio' =&gt; '0',
+		'minuto_fin' =&gt; '30'
+	),
+	'Profesor' =&gt; array(
+		'id' =&gt; '7',
+		'nombreP' =&gt; 'miguel ',
+		'apellidosP' =&gt; 'reboiro jato',
+		'tipoUsuario' =&gt; 'profesor',
+		'usuarioP' =&gt; 'jato',
+		'passP' =&gt; 'jato'
+	)
+)
+$fecha = array(
+	(int) 0 =&gt; '2016',
+	(int) 1 =&gt; '01',
+	(int) 2 =&gt; '15'
+)
+$dia = '15/01/2016'</pre><pre class="stack-trace">include - APP\View\CambPuntuales\index.ctp, line 25
+View::_evaluate() - CORE\Cake\View\View.php, line 971
+View::_render() - CORE\Cake\View\View.php, line 933
+View::render() - CORE\Cake\View\View.php, line 473
+Controller::render() - CORE\Cake\Controller\Controller.php, line 960
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 111</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921ddfb0a-trace&#39;).style.display = (document.getElementById(&#39;cakeErr569f921ddfb0a-trace&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;);"><b>Notice</b> (8)</a>: Undefined index: apellidosP [<b>APP\View\CambPuntuales\index.ctp</b>, line <b>25</b>]<div id="cakeErr569f921ddfb0a-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921ddfb0a-code&#39;).style.display = (document.getElementById(&#39;cakeErr569f921ddfb0a-code&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;)">Code</a> <a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921ddfb0a-context&#39;).style.display = (document.getElementById(&#39;cakeErr569f921ddfb0a-context&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;)">Context</a><pre id="cakeErr569f921ddfb0a-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'entra'</span><span style="color: #007700">;
+</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&gt;&lt;li&gt;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'nombreP'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'apellidosP'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;día&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">$dia&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;tutorías&nbsp;de&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;asa'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;son&nbsp;desde&nbsp;las&nbsp;'</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'hora_inicio'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">':'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'minuto_inicio'</span><span style="color: #007700">].&nbsp;</span><span style="color: #DD0000">'&nbsp;hasta&nbsp;las&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'hora_fin'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">':'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'minuto_fin'</span><span style="color: #007700">];&nbsp;
+</span></span></code></span></pre><pre id="cakeErr569f921ddfb0a-context" class="cake-context" style="display: none;">$viewFile = 'C:\xampp\htdocs\TFG\app\View\CambPuntuales\index.ctp'
+$dataForView = array(
+	'tutorias' =&gt; array(
+		(int) 0 =&gt; array(
+			'CambPuntual' =&gt; array(
+				[maximum depth reached]
+			),
+			'Tutoria' =&gt; array(
+				[maximum depth reached]
+			),
+			'Profesor' =&gt; array(
+				[maximum depth reached]
+			)
+		),
+		(int) 1 =&gt; array(
+			'CambPuntual' =&gt; array(
+				[maximum depth reached]
+			),
+			'Tutoria' =&gt; array(
+				[maximum depth reached]
+			),
+			'Profesor' =&gt; array(
+				[maximum depth reached]
+			)
+		)
+	)
+)
+$tutorias = array(
+	(int) 0 =&gt; array(
+		'CambPuntual' =&gt; array(
+			'id' =&gt; '24',
+			'tutoria_id' =&gt; '3',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; '2016-01-15',
+			'hora_inicio' =&gt; '10',
+			'hora_fin' =&gt; '12',
+			'despacho' =&gt; '2',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '0'
+		),
+		'Tutoria' =&gt; array(
+			'id' =&gt; '3',
+			'asignatura_id' =&gt; '1',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; 'martes',
+			'hora_inicio' =&gt; '9',
+			'hora_fin' =&gt; '14',
+			'despacho' =&gt; '31',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '30'
+		),
+		'Profesor' =&gt; array(
+			'id' =&gt; '7',
+			'nombreP' =&gt; 'miguel ',
+			'apellidosP' =&gt; 'reboiro jato',
+			'tipoUsuario' =&gt; 'profesor',
+			'usuarioP' =&gt; 'jato',
+			'passP' =&gt; 'jato'
+		)
+	),
+	(int) 1 =&gt; array(
+		'CambPuntual' =&gt; array(
+			'id' =&gt; '25',
+			'tutoria_id' =&gt; '3',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; '0000-00-00',
+			'hora_inicio' =&gt; '10',
+			'hora_fin' =&gt; '12',
+			'despacho' =&gt; '2',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '0'
+		),
+		'Tutoria' =&gt; array(
+			'id' =&gt; '3',
+			'asignatura_id' =&gt; '1',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; 'martes',
+			'hora_inicio' =&gt; '9',
+			'hora_fin' =&gt; '14',
+			'despacho' =&gt; '31',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '30'
+		),
+		'Profesor' =&gt; array(
+			'id' =&gt; '7',
+			'nombreP' =&gt; 'miguel ',
+			'apellidosP' =&gt; 'reboiro jato',
+			'tipoUsuario' =&gt; 'profesor',
+			'usuarioP' =&gt; 'jato',
+			'passP' =&gt; 'jato'
+		)
+	)
+)
+$userData = null
+$userType = 'admin'
+$valor = array(
+	'CambPuntual' =&gt; array(
+		'id' =&gt; '24',
+		'tutoria_id' =&gt; '3',
+		'profesor_id' =&gt; '7',
+		'dia' =&gt; '2016-01-15',
+		'hora_inicio' =&gt; '10',
+		'hora_fin' =&gt; '12',
+		'despacho' =&gt; '2',
+		'minuto_inicio' =&gt; '0',
+		'minuto_fin' =&gt; '0'
+	),
+	'Tutoria' =&gt; array(
+		'id' =&gt; '3',
+		'asignatura_id' =&gt; '1',
+		'profesor_id' =&gt; '7',
+		'dia' =&gt; 'martes',
+		'hora_inicio' =&gt; '9',
+		'hora_fin' =&gt; '14',
+		'despacho' =&gt; '31',
+		'minuto_inicio' =&gt; '0',
+		'minuto_fin' =&gt; '30'
+	),
+	'Profesor' =&gt; array(
+		'id' =&gt; '7',
+		'nombreP' =&gt; 'miguel ',
+		'apellidosP' =&gt; 'reboiro jato',
+		'tipoUsuario' =&gt; 'profesor',
+		'usuarioP' =&gt; 'jato',
+		'passP' =&gt; 'jato'
+	)
+)
+$fecha = array(
+	(int) 0 =&gt; '2016',
+	(int) 1 =&gt; '01',
+	(int) 2 =&gt; '15'
+)
+$dia = '15/01/2016'</pre><pre class="stack-trace">include - APP\View\CambPuntuales\index.ctp, line 25
+View::_evaluate() - CORE\Cake\View\View.php, line 971
+View::_render() - CORE\Cake\View\View.php, line 933
+View::render() - CORE\Cake\View\View.php, line 473
+Controller::render() - CORE\Cake\Controller\Controller.php, line 960
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 111</pre></div></pre>  día 15/01/2016 tutorías de  asa son desde las 10:0 hasta las 12:0					</li>
+				entra<li> <pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921de106b-trace&#39;).style.display = (document.getElementById(&#39;cakeErr569f921de106b-trace&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;);"><b>Notice</b> (8)</a>: Undefined index: nombreP [<b>APP\View\CambPuntuales\index.ctp</b>, line <b>25</b>]<div id="cakeErr569f921de106b-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921de106b-code&#39;).style.display = (document.getElementById(&#39;cakeErr569f921de106b-code&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;)">Code</a> <a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921de106b-context&#39;).style.display = (document.getElementById(&#39;cakeErr569f921de106b-context&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;)">Context</a><pre id="cakeErr569f921de106b-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'entra'</span><span style="color: #007700">;
+</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&gt;&lt;li&gt;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'nombreP'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'apellidosP'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;día&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">$dia&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;tutorías&nbsp;de&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;asa'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;son&nbsp;desde&nbsp;las&nbsp;'</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'hora_inicio'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">':'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'minuto_inicio'</span><span style="color: #007700">].&nbsp;</span><span style="color: #DD0000">'&nbsp;hasta&nbsp;las&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'hora_fin'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">':'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'minuto_fin'</span><span style="color: #007700">];&nbsp;
+</span></span></code></span></pre><pre id="cakeErr569f921de106b-context" class="cake-context" style="display: none;">$viewFile = 'C:\xampp\htdocs\TFG\app\View\CambPuntuales\index.ctp'
+$dataForView = array(
+	'tutorias' =&gt; array(
+		(int) 0 =&gt; array(
+			'CambPuntual' =&gt; array(
+				[maximum depth reached]
+			),
+			'Tutoria' =&gt; array(
+				[maximum depth reached]
+			),
+			'Profesor' =&gt; array(
+				[maximum depth reached]
+			)
+		),
+		(int) 1 =&gt; array(
+			'CambPuntual' =&gt; array(
+				[maximum depth reached]
+			),
+			'Tutoria' =&gt; array(
+				[maximum depth reached]
+			),
+			'Profesor' =&gt; array(
+				[maximum depth reached]
+			)
+		)
+	)
+)
+$tutorias = array(
+	(int) 0 =&gt; array(
+		'CambPuntual' =&gt; array(
+			'id' =&gt; '24',
+			'tutoria_id' =&gt; '3',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; '2016-01-15',
+			'hora_inicio' =&gt; '10',
+			'hora_fin' =&gt; '12',
+			'despacho' =&gt; '2',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '0'
+		),
+		'Tutoria' =&gt; array(
+			'id' =&gt; '3',
+			'asignatura_id' =&gt; '1',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; 'martes',
+			'hora_inicio' =&gt; '9',
+			'hora_fin' =&gt; '14',
+			'despacho' =&gt; '31',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '30'
+		),
+		'Profesor' =&gt; array(
+			'id' =&gt; '7',
+			'nombreP' =&gt; 'miguel ',
+			'apellidosP' =&gt; 'reboiro jato',
+			'tipoUsuario' =&gt; 'profesor',
+			'usuarioP' =&gt; 'jato',
+			'passP' =&gt; 'jato'
+		)
+	),
+	(int) 1 =&gt; array(
+		'CambPuntual' =&gt; array(
+			'id' =&gt; '25',
+			'tutoria_id' =&gt; '3',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; '0000-00-00',
+			'hora_inicio' =&gt; '10',
+			'hora_fin' =&gt; '12',
+			'despacho' =&gt; '2',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '0'
+		),
+		'Tutoria' =&gt; array(
+			'id' =&gt; '3',
+			'asignatura_id' =&gt; '1',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; 'martes',
+			'hora_inicio' =&gt; '9',
+			'hora_fin' =&gt; '14',
+			'despacho' =&gt; '31',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '30'
+		),
+		'Profesor' =&gt; array(
+			'id' =&gt; '7',
+			'nombreP' =&gt; 'miguel ',
+			'apellidosP' =&gt; 'reboiro jato',
+			'tipoUsuario' =&gt; 'profesor',
+			'usuarioP' =&gt; 'jato',
+			'passP' =&gt; 'jato'
+		)
+	)
+)
+$userData = null
+$userType = 'admin'
+$valor = array(
+	'CambPuntual' =&gt; array(
+		'id' =&gt; '25',
+		'tutoria_id' =&gt; '3',
+		'profesor_id' =&gt; '7',
+		'dia' =&gt; '0000-00-00',
+		'hora_inicio' =&gt; '10',
+		'hora_fin' =&gt; '12',
+		'despacho' =&gt; '2',
+		'minuto_inicio' =&gt; '0',
+		'minuto_fin' =&gt; '0'
+	),
+	'Tutoria' =&gt; array(
+		'id' =&gt; '3',
+		'asignatura_id' =&gt; '1',
+		'profesor_id' =&gt; '7',
+		'dia' =&gt; 'martes',
+		'hora_inicio' =&gt; '9',
+		'hora_fin' =&gt; '14',
+		'despacho' =&gt; '31',
+		'minuto_inicio' =&gt; '0',
+		'minuto_fin' =&gt; '30'
+	),
+	'Profesor' =&gt; array(
+		'id' =&gt; '7',
+		'nombreP' =&gt; 'miguel ',
+		'apellidosP' =&gt; 'reboiro jato',
+		'tipoUsuario' =&gt; 'profesor',
+		'usuarioP' =&gt; 'jato',
+		'passP' =&gt; 'jato'
+	)
+)
+$fecha = array(
+	(int) 0 =&gt; '0000',
+	(int) 1 =&gt; '00',
+	(int) 2 =&gt; '00'
+)
+$dia = '00/00/0000'</pre><pre class="stack-trace">include - APP\View\CambPuntuales\index.ctp, line 25
+View::_evaluate() - CORE\Cake\View\View.php, line 971
+View::_render() - CORE\Cake\View\View.php, line 933
+View::render() - CORE\Cake\View\View.php, line 473
+Controller::render() - CORE\Cake\Controller\Controller.php, line 960
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 111</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921de2528-trace&#39;).style.display = (document.getElementById(&#39;cakeErr569f921de2528-trace&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;);"><b>Notice</b> (8)</a>: Undefined index: apellidosP [<b>APP\View\CambPuntuales\index.ctp</b>, line <b>25</b>]<div id="cakeErr569f921de2528-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921de2528-code&#39;).style.display = (document.getElementById(&#39;cakeErr569f921de2528-code&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;)">Code</a> <a href="javascript:void(0);" onclick="document.getElementById(&#39;cakeErr569f921de2528-context&#39;).style.display = (document.getElementById(&#39;cakeErr569f921de2528-context&#39;).style.display == &#39;none&#39; ? &#39;&#39; : &#39;none&#39;)">Context</a><pre id="cakeErr569f921de2528-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'entra'</span><span style="color: #007700">;
+</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?&gt;&lt;li&gt;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'nombreP'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'apellidosP'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">'&nbsp;día&nbsp;'&nbsp;</span><span style="color: #007700">.</span><span style="color: #0000BB">$dia&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;tutorías&nbsp;de&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;asa'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'&nbsp;son&nbsp;desde&nbsp;las&nbsp;'</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'hora_inicio'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">':'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'minuto_inicio'</span><span style="color: #007700">].&nbsp;</span><span style="color: #DD0000">'&nbsp;hasta&nbsp;las&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'hora_fin'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">':'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$valor</span><span style="color: #007700">[</span><span style="color: #DD0000">'CambPuntual'</span><span style="color: #007700">][</span><span style="color: #DD0000">'minuto_fin'</span><span style="color: #007700">];&nbsp;
+</span></span></code></span></pre><pre id="cakeErr569f921de2528-context" class="cake-context" style="display: none;">$viewFile = 'C:\xampp\htdocs\TFG\app\View\CambPuntuales\index.ctp'
+$dataForView = array(
+	'tutorias' =&gt; array(
+		(int) 0 =&gt; array(
+			'CambPuntual' =&gt; array(
+				[maximum depth reached]
+			),
+			'Tutoria' =&gt; array(
+				[maximum depth reached]
+			),
+			'Profesor' =&gt; array(
+				[maximum depth reached]
+			)
+		),
+		(int) 1 =&gt; array(
+			'CambPuntual' =&gt; array(
+				[maximum depth reached]
+			),
+			'Tutoria' =&gt; array(
+				[maximum depth reached]
+			),
+			'Profesor' =&gt; array(
+				[maximum depth reached]
+			)
+		)
+	)
+)
+$tutorias = array(
+	(int) 0 =&gt; array(
+		'CambPuntual' =&gt; array(
+			'id' =&gt; '24',
+			'tutoria_id' =&gt; '3',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; '2016-01-15',
+			'hora_inicio' =&gt; '10',
+			'hora_fin' =&gt; '12',
+			'despacho' =&gt; '2',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '0'
+		),
+		'Tutoria' =&gt; array(
+			'id' =&gt; '3',
+			'asignatura_id' =&gt; '1',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; 'martes',
+			'hora_inicio' =&gt; '9',
+			'hora_fin' =&gt; '14',
+			'despacho' =&gt; '31',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '30'
+		),
+		'Profesor' =&gt; array(
+			'id' =&gt; '7',
+			'nombreP' =&gt; 'miguel ',
+			'apellidosP' =&gt; 'reboiro jato',
+			'tipoUsuario' =&gt; 'profesor',
+			'usuarioP' =&gt; 'jato',
+			'passP' =&gt; 'jato'
+		)
+	),
+	(int) 1 =&gt; array(
+		'CambPuntual' =&gt; array(
+			'id' =&gt; '25',
+			'tutoria_id' =&gt; '3',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; '0000-00-00',
+			'hora_inicio' =&gt; '10',
+			'hora_fin' =&gt; '12',
+			'despacho' =&gt; '2',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '0'
+		),
+		'Tutoria' =&gt; array(
+			'id' =&gt; '3',
+			'asignatura_id' =&gt; '1',
+			'profesor_id' =&gt; '7',
+			'dia' =&gt; 'martes',
+			'hora_inicio' =&gt; '9',
+			'hora_fin' =&gt; '14',
+			'despacho' =&gt; '31',
+			'minuto_inicio' =&gt; '0',
+			'minuto_fin' =&gt; '30'
+		),
+		'Profesor' =&gt; array(
+			'id' =&gt; '7',
+			'nombreP' =&gt; 'miguel ',
+			'apellidosP' =&gt; 'reboiro jato',
+			'tipoUsuario' =&gt; 'profesor',
+			'usuarioP' =&gt; 'jato',
+			'passP' =&gt; 'jato'
+		)
+	)
+)
+$userData = null
+$userType = 'admin'
+$valor = array(
+	'CambPuntual' =&gt; array(
+		'id' =&gt; '25',
+		'tutoria_id' =&gt; '3',
+		'profesor_id' =&gt; '7',
+		'dia' =&gt; '0000-00-00',
+		'hora_inicio' =&gt; '10',
+		'hora_fin' =&gt; '12',
+		'despacho' =&gt; '2',
+		'minuto_inicio' =&gt; '0',
+		'minuto_fin' =&gt; '0'
+	),
+	'Tutoria' =&gt; array(
+		'id' =&gt; '3',
+		'asignatura_id' =&gt; '1',
+		'profesor_id' =&gt; '7',
+		'dia' =&gt; 'martes',
+		'hora_inicio' =&gt; '9',
+		'hora_fin' =&gt; '14',
+		'despacho' =&gt; '31',
+		'minuto_inicio' =&gt; '0',
+		'minuto_fin' =&gt; '30'
+	),
+	'Profesor' =&gt; array(
+		'id' =&gt; '7',
+		'nombreP' =&gt; 'miguel ',
+		'apellidosP' =&gt; 'reboiro jato',
+		'tipoUsuario' =&gt; 'profesor',
+		'usuarioP' =&gt; 'jato',
+		'passP' =&gt; 'jato'
+	)
+)
+$fecha = array(
+	(int) 0 =&gt; '0000',
+	(int) 1 =&gt; '00',
+	(int) 2 =&gt; '00'
+)
+$dia = '00/00/0000'</pre><pre class="stack-trace">include - APP\View\CambPuntuales\index.ctp, line 25
+View::_evaluate() - CORE\Cake\View\View.php, line 971
+View::_render() - CORE\Cake\View\View.php, line 933
+View::render() - CORE\Cake\View\View.php, line 473
+Controller::render() - CORE\Cake\Controller\Controller.php, line 960
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 111</pre></div></pre>  día 00/00/0000 tutorías de  asa son desde las 10:0 hasta las 12:0					</li>
+				</ul>		</div>
+		<div id="footer">
+			<a href="http://www.cakephp.org/" target="_blank" id="cake-powered"><img src="./CakePHP_ the rapid development php framework_ CambPuntuales_files/cake.power.gif" alt="CakePHP: the rapid development php framework" border="0"></a>			<p>
+				CakePHP 2.7.7			</p>
+		</div>
+	</div>
+	<table class="cake-sql-log" id="cakeSqlLog_1453298205569f921de93a88_36938650" summary="Cake SQL Log" cellspacing="0"><caption>(default) 1 query took 1 ms</caption>	<thead>
+		<tr><th>Nr</th><th>Query</th><th>Error</th><th>Affected</th><th>Num. rows</th><th>Took (ms)</th></tr>
+	</thead>
+	<tbody>
+	<tr><td>1</td><td>SELECT `CambPuntual`.`id`, `CambPuntual`.`tutoria_id`, `CambPuntual`.`profesor_id`, `CambPuntual`.`dia`, `CambPuntual`.`hora_inicio`, `CambPuntual`.`hora_fin`, `CambPuntual`.`despacho`, `CambPuntual`.`minuto_inicio`, `CambPuntual`.`minuto_fin`, `Tutoria`.`id`, `Tutoria`.`asignatura_id`, `Tutoria`.`profesor_id`, `Tutoria`.`dia`, `Tutoria`.`hora_inicio`, `Tutoria`.`hora_fin`, `Tutoria`.`despacho`, `Tutoria`.`minuto_inicio`, `Tutoria`.`minuto_fin`, `Profesor`.`id`, `Profesor`.`nombreP`, `Profesor`.`apellidosP`, `Profesor`.`tipoUsuario`, `Profesor`.`usuarioP`, `Profesor`.`passP` FROM `proyecto`.`camb_puntuales` AS `CambPuntual` LEFT JOIN `proyecto`.`tutorias` AS `Tutoria` ON (`CambPuntual`.`tutoria_id` = `Tutoria`.`id`) LEFT JOIN `proyecto`.`profesores` AS `Profesor` ON (`CambPuntual`.`profesor_id` = `Profesor`.`id`)  WHERE 1 = 1</td><td></td><td style="text-align: right">2</td><td style="text-align: right">2</td><td style="text-align: right">1</td></tr>
+	</tbody></table>
+	
+
+</body></html>
