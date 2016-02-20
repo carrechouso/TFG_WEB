@@ -228,5 +228,18 @@
 		function dateToCal($timestamp) {
  		 return date('Ymd\Tgis\Z', $timestamp);
 		}
+	
+
+		public function delete($id){
+
+			if($this->request->is('post')){
+					 
+				 $this->loadModel('Change');
+				 $this->Change->deleteAll(array('Change.tutorial_id' => $id), false);
+				 $this->Tutorial->delete($id, True);
+				 $this->Flash->success('Tutoría eliminada correctamente');
+				 return $this->redirect(array('controller' => 'tutorials', 'action' => 'index'));
+			}
+		}
 	}
 ?>

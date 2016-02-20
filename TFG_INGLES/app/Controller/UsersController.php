@@ -4,7 +4,7 @@
 
 		public function beforeFilter() {
 		    parent::beforeFilter();
-		    $this->Auth->allow('add', 'logout','login');
+		    $this->Auth->allow('add', 'logout','login', 'recover');
 		}
 
 	
@@ -116,9 +116,7 @@
 
 		 public function removeAuth(){
 		 	if($this->request->is('post')){
-		 		$this->User->read (null,$this->request->data['User']['id']);
-		 		$this->User->set('authenticated', False);
-				$this->User->save();
+		 		$this->User->updateAll(array('authenticated'=>False), array('User.id'=> $this->request->data['User']['id']));
 		 		$this->Flash->success (('Email ' . $this->request->data['User']['email']) . ' deshabilitado');
 		 		return $this->redirect (array('controller' => 'Users', 'action' => 'authList'));
 		 	}
@@ -126,12 +124,39 @@
 
 		 public function addAuth(){
 		 	if($this->request->is ('post')){
-		 		$this->User->read (null,$this->request->data['User']['id']);
-		 		$this->User->set('authenticated', True);
-				$this->User->save();
+		 		$this->User->updateAll(array('authenticated'=>True), array('User.id'=> $this->request->data['User']['id']));
 		 		$this->Flash->success (('Email ' . $this->request->data['User']['email']) . ' habilitado');
 		 		return $this->redirect (array('controller' => 'Users', 'action' => 'authList'));
 		 	}
 		}
+
+		public function removeProffesor($id){
+			if($this->request->is('post')){
+				$this->loadModel('Impart');
+				$this->loadModel('Tutorial');
+				$this->loadModel('Change');
+				$this->loadModel('Message');
+				$subjects = $this->Impart->find('all', array('conditions' => array('Impart.user_id' => $id)));
+
+				foreach($subjects as $subject){
+					$tutorials = $this->Tutorial->find('all', array('conditions', array('Tutorial.subject_id' => $subject['Impart']['subject_id'], 'Tutorial.user_id' => $id)));
+					
+					foreach($tutorials as $tutorial){
+						$this->Change->deleteAll(array('Change.tutorial_id' => $tutorial['Tutorial']['id'], 'Change.user_id' => $id), false);
+					}
+					$this->Tutorial->delete($tutorial['Tutorial']['id'] ,True);
+				}
+				
+				$this->Message->deleteAll(array('Message.receiver_id' =>$id), false);
+				$this->Message->deleteAll(array('Message.transmitter_id' =>$id), false);
+				$this->User->delete($id, True);
+				$this->Flash->success ('Profesor eliminado correctamente');
+				return $this->redirect (array('controller' => 'Users', 'action' => 'allProffesorsData'));
+			}
+		}
+
+	public function recover(){
+
+	}
 }
 ?>

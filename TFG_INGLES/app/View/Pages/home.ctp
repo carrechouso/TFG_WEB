@@ -5,4 +5,8 @@
 	  echo $this->Form->Input('password',array('label' => '', 'placeholder' => 'Contraseña', 'type' => 'password'));
 	  echo $this->Form->End('Acceder-funcion before filter nos controladores para paginas permitidas sen loguearse');
 	  echo $this->Html->link('Registrarse','/Users/add');
+	  ?>
+ 	  </br>
+	  <?php
+	  echo $this->Html->link('No me recuerdo de mi contaseña o nombre de usuario','/Users/recover');
 ?>
