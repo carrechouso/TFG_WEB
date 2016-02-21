@@ -1,5 +1,6 @@
 <?php
 	App::uses('AppController', 'Controller');
+	App::uses('CakeEmail', 'Network/Email');
 	class UsersController extends AppController {
 
 		public function beforeFilter() {
@@ -157,6 +158,34 @@
 
 	public function recover(){
 
+		if($this->request->is('post')){
+			$user = $this->User->find('all',array('conditions' => array('User.email' => $this->request->data['User']['email'])));
+			
+			if (sizeof($user) > 0){
+				App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
+				$Email = new CakeEmail('smtp');
+		        $Email->from(array('tfgusuario@gmail.com' => 'Recuperación contraseña'));
+		        $Email->to($user[0]['User']['email']);
+		        $Email->subject('Contraseña y/o nombre de usuario olvidado/s');
+		        $pass = $this->codeGenerator();
+		        $content = 'Nombre de usuario: ' . $user[0]['User']['username'] .' Contaseña: ' . $pass;
+		        $Email->send($content);
+		      	$passwordHasher = new BlowfishPasswordHasher();
+		 	    $passCod = $passwordHasher->hash($pass);
+		      	$this->User->updateAll(array('User.password '=> '\''.$passCod.'\'' ), array('User.email'=> $this->request->data['User']['email']));
+		 		$this->Flash->success('Se han enviado a tu correo los datos de tu cuenta');
+			}else{
+				$this->Flash->set('No existe ningún usuario co el correo indicado');
+			}
+		}
+	}
+
+	public function codeGenerator() {
+		 $key = '';
+		 $pattern = 'abcdefghijzrmnopqrstuvwxyz';
+		 $max = strlen($pattern)-1;
+		 for($i=0;$i < 11;$i++) $key .= $pattern{mt_rand(0,$max)};
+		 return ''.$key;
 	}
 }
 ?>
