@@ -82,5 +82,9 @@
 		</br>
 		<?php
 		echo $this->Html->link("Lista de Mensajes",array('controller' => 'messages', 'action' => 'index'));
+		?>
+		</br>
+		<?php
+		echo $this->Html->link("Mi perfil",array('controller' => 'users', 'action' => 'userData'));
 ?>
 

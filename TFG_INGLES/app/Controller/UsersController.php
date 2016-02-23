@@ -34,17 +34,23 @@
 		 		if($num == 1){
 		 			$this->Flash->set('Ese nombre de usuario ya existe');
 		 		}else{
-		 			if($this->request->data['User']['password'] != $this->request->data['User']['password_2']){
-		 			  $this->Flash->set('las contraseñas no son iguales');
+		 			$num = $this->User->find('count', array('conditions' => array('User.email =' => $this->request->data['User']['email'])));	
+		 			
+		 			if($num == 0){
+			 			if($this->request->data['User']['password'] != $this->request->data['User']['password_2']){
+			 			  $this->Flash->set('las contraseñas no son iguales');
+			 			}else{
+			 				$this->User->set($this->request->data);
+			 				if($this->User->validates()){
+				 				$this->User->save($this->request->data);
+							    $this->Flash->success('Alumno registrado correctamente');
+								return $this->redirect(array('controller' => 'pages', 'action' => 'home'));	
+							}else{
+								 $this->Flash->set('Alguno de los datos es incorrecto');
+							}	
+			 			}
 		 			}else{
-		 				$this->User->set($this->request->data);
-		 				if($this->User->validates()){
-			 				$this->User->save($this->request->data);
-						    $this->Flash->success('Alumno registrado correctamente');
-							return $this->redirect(array('controller' => 'pages', 'action' => 'home'));	
-						}else{
-							 $this->Flash->set('Alguno de los datos es incorrecto');
-						}	
+		 				$this->Flash->set('Ya existe un usuario con ese email');
 		 			}
 		 		}
 		 	}
@@ -162,7 +168,7 @@
 			$user = $this->User->find('all',array('conditions' => array('User.email' => $this->request->data['User']['email'])));
 			
 			if (sizeof($user) > 0){
-				App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
+				App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 				$Email = new CakeEmail('smtp');
 		        $Email->from(array('tfgusuario@gmail.com' => 'Recuperación contraseña'));
 		        $Email->to($user[0]['User']['email']);
@@ -182,10 +188,62 @@
 
 	public function codeGenerator() {
 		 $key = '';
-		 $pattern = 'abcdefghijzrmnopqrstuvwxyz';
+		 $pattern = 'abcdefghijzrmnopqrstuvwxyz0123456789';
 		 $max = strlen($pattern)-1;
 		 for($i=0;$i < 11;$i++) $key .= $pattern{mt_rand(0,$max)};
 		 return ''.$key;
 	}
+
+
+	public function userData(){
+
+		if($this->request->is('get') || $this->request->is('post')){
+
+			$userData = $this->Session->read('userData');
+			$this->set("username", $userData[0]['User']['username']);
+			$this->set("email", $userData[0]['User']['email']);
+			$this->set("name", $userData[0]['User']['name']);
+			$this->set("surname", $userData[0]['User']['surname']);
+			$this->set("validate", $userData[0]['User']['authenticated']);
+		}
+	}
+
+	public function changeEmail(){
+
+		if($this->request->is('post')){
+			$userData = $this->Session->read('userData');
+			$id = $userData[0]['User']['id'];
+			$this->User->updateAll(array('User.email '=> '\''. $this->request->data['User']['email'] . '\'' ), array('User.id'=> $id));
+			$this->Session->delete('userData');
+			$this->Session->write('userData', $this->User->find('all', array('conditions' => array('User.id' => $id))));
+			$this->Flash->success('Cambios realizados correctamente');
+			return $this->redirect (array('controller' => 'Users', 'action' => 'userData'));
+		}
+	}
+
+
+	public function changePass(){
+
+		if($this->request->is('post')){
+			
+			if ($this->request->data['User']['password'] == $this->request->data['User']['password_2']){
+				$userData = $this->Session->read('userData');
+				$id = $userData[0]['User']['id'];
+				$this->Session->delete('userData');
+				
+				App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
+				$passwordHasher = new BlowfishPasswordHasher();
+			 	$passCod = $passwordHasher->hash($this->request->data['User']['password']);
+			 	
+			 	$this->User->updateAll(array('User.password '=> '\''.$passCod.'\'' ), array('User.id'=>  $id));
+				$this->Session->write('userData', $this->User->find('all', array('conditions' => array('User.id' => $id))));
+				$this->Flash->success('Cambios realizados correctamente');
+			}else
+				$this->Flash->set('Las contraseñas no son iguales');
+
+			return $this->redirect (array('controller' => 'Users', 'action' => 'userData'));
+		}
+	}
+
 }
 ?>

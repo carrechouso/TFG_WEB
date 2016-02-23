@@ -33,7 +33,7 @@
 				)
 			),'email' => array(
 				'required' => array(
-					'rule' => array('email',true),
+					'rule' => array('email',false),
 					'message' => 'Introduzca un correo electrónico Ex:ejemplo@correo.com'
 				)
 			)
