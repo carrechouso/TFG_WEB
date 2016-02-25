@@ -44,6 +44,11 @@ class AppController extends Controller {
                 'action' => 'display',
                 'home'
             ),
+            'loginAction' => array(
+                'controller' => 'pages',
+                'action' => 'display',
+                'home'
+            ),
             'authenticate' => array(
                 'Form' => array(
                     'passwordHasher' => 'Blowfish'

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-02-2016 a las 12:37:39
+-- Tiempo de generación: 25-02-2016 a las 21:38:18
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -37,15 +37,15 @@ CREATE TABLE IF NOT EXISTS `changes` (
   `place` varchar(50) DEFAULT NULL,
   `start_minute` int(11) NOT NULL,
   `finish_minute` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `changes`
 --
 
 INSERT INTO `changes` (`id`, `tutorial_id`, `user_id`, `date`, `newDate`, `start_hour`, `finish_hour`, `place`, `start_minute`, `finish_minute`) VALUES
-(6, 6, 9, '2016-02-08', '2016-02-09', 14, 18, '78', 10, 20),
-(7, 6, 9, '2016-02-15', '2016-02-16', 10, 12, '2', 0, 0);
+(23, 9, 27, '2016-02-15', '2016-02-19', 10, 12, 'desp 3.2', 0, 0),
+(24, 10, 27, '2016-02-16', '2016-02-19', 14, 15, 'lab 2.1', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -57,14 +57,15 @@ CREATE TABLE IF NOT EXISTS `imparts` (
   `id` int(10) unsigned NOT NULL,
   `subject_id` int(10) unsigned DEFAULT NULL,
   `user_id` int(10) unsigned DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `imparts`
 --
 
 INSERT INTO `imparts` (`id`, `subject_id`, `user_id`) VALUES
-(2, 1, 9);
+(5, 2, 27),
+(6, 3, 27);
 
 -- --------------------------------------------------------
 
@@ -104,14 +105,15 @@ CREATE TABLE IF NOT EXISTS `subjects` (
   `credits` int(10) unsigned DEFAULT NULL,
   `quarter` enum('1','2') NOT NULL,
   `code` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `subjects`
 --
 
 INSERT INTO `subjects` (`id`, `name`, `credits`, `quarter`, `code`) VALUES
-(1, 'proi', 6, '1', 'proi_code');
+(2, 'asignatura 1', 6, '2', 'a1_code'),
+(3, 'asignatura 2', 6, '1', 'a2_code');
 
 -- --------------------------------------------------------
 
@@ -129,14 +131,15 @@ CREATE TABLE IF NOT EXISTS `tutorials` (
   `place` int(10) DEFAULT NULL,
   `start_minute` int(11) NOT NULL,
   `finish_minute` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `tutorials`
 --
 
 INSERT INTO `tutorials` (`id`, `subject_id`, `user_id`, `day`, `start_hour`, `finish_hour`, `place`, `start_minute`, `finish_minute`) VALUES
-(6, 1, 9, 'lunes', 13, 16, 4, 20, 40);
+(9, 2, 27, 'lunes', 10, 12, 0, 0, 0),
+(10, 3, 27, 'martes', 10, 12, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -153,17 +156,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `type` enum('admin','profesor','alumno','') NOT NULL,
   `email` varchar(50) NOT NULL,
   `authenticated` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `password`, `username`, `type`, `email`, `authenticated`) VALUES
-(5, 'a', 'a', '$2a$10$WUUPptAouTy.jNJbwr0Q3e3EtHZmts6TfINPgVQSRpWAqejnrE5aa', 'a', 'admin', 'a', 1),
-(6, 'c', 'c', '$2a$10$Y6aqJYUydRHvawbhZcaeUendsD4XeQkl2l4GSfZ.hAWzMaqjRoIWW', 'c', 'profesor', 'c', 1),
-(7, 's', 's', '$2a$10$DEshjjPcN54zDb3NGMpUp.LLAWkSdd3gREAibMO7abidObH7jHMMi', 's', 'alumno', 's', 0),
-(9, 'Mario', 'Conde', '$2a$10$hXRQDIfI8DdQJyWFm7Qdpealy/.ycS8FBJEQbriYP37mykOJxaTdC', 'p', 'profesor', 'email@p', 1);
+(25, 'admin', 'admin', '$2a$10$8Tv4eIBfgTGOm2D9c54.NutRrM/zzfXEtSavAdbKuujOdk9Z41Q0C', 'admin', 'admin', 'admin@correo.es', 1),
+(26, 'profesor 1', 'profesor 1', '$2a$10$nd148RKBo55FcUe59zvaJO7ocmZgQx9RyNEGbzczkkPKhYHNJtAqu', 'p1', 'profesor', 'p1@correo.com', 1),
+(27, 'profesor 2', 'profesor 2', '$2a$10$EniDKT/h3JggG9T7QrbX6uJ7yYAMbMd/O5sJuULtc7W9XxCbWg7YK', 'p2', 'profesor', 'p2@correo.es', 1),
+(28, 'user', 'user', '$2a$10$Zg2W9FGsW9hV4oaqMAgFzuKyaDioaTwbXQUSxs4kBYORPQ3nC.hi.', 'user', 'alumno', 'tfgusuario@gmail.com', 0);
 
 --
 -- Índices para tablas volcadas
@@ -219,12 +222,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `changes`
 --
 ALTER TABLE `changes`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `imparts`
 --
 ALTER TABLE `imparts`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `messages`
 --
@@ -239,17 +242,17 @@ ALTER TABLE `studies`
 -- AUTO_INCREMENT de la tabla `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `tutorials`
 --
 ALTER TABLE `tutorials`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 --
 -- Restricciones para tablas volcadas
 --

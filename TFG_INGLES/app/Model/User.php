@@ -54,5 +54,4 @@
 			return $this->query("SELECT t.place, p.name, p.id, p.surname, a.name, t.day, t.start_hour, t.finish_hour, t.start_minute,t.finish_minute FROM tutorials t, users p, subjects a WHERE p.id = t.user_id AND t.subject_id=a.id AND p.id='".$id."'");
 		}	
 	}
-?>	
-	
+?>
