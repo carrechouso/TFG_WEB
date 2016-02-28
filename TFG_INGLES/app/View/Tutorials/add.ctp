@@ -1,15 +1,14 @@
 <h1 align="center"> REGISTRO Tutoría</h1>
 <?php 
 	$days = array('lunes' => 'lunes', 'martes' => 'martes', 'miercoles' => 'miercoles','jueves' => 'jueves', 'viernes' => 'viernes');
-	$userType = $this->Session->read('userType');
-	$userData= $this->Session->read('userData');
-	print_r($userData);
+	
+	
 	echo $this->Form->create('Tutorial', array('url' => array('controller' => 'tutorials', 'action' => 'add'))) ;
 	echo $this->Form->Input('subject_id',array('label' => '', 'placeholder' => 'código de la asignatura', 'type' => 'text'));
-	if($userType == 'admin'){
+	if(AuthComponent::user('type') == 'admin'){
 		echo $this->Form->Input('user_id',array('label' => '', 'placeholder' => 'nombre usuario del profesor', 'type' => 'text'));
 	}else{
-		echo $this->Form->Input('user_id',array('type' =>'hidden','value' => $userData[0]['User']['username']));
+		echo $this->Form->Input('user_id',array('type' =>'hidden','value' => AuthComponent::user('username')));
 	}
 	echo $this->Form->input('day', array('label' => '','options' => $days, 'default' => 'l'));
 	echo $this->Form->hour('start_hour', 'true',  array('default' => '10'));

@@ -1,7 +1,7 @@
 <h1 align = "center">Datos de <?php echo $name . ' ' . $surname;?></h1>
 <ul>
 	<?php
-	$userData = $this->Session->read('userData');
+	
 		if (sizeof($data) == 0){
 			?>
 				<h1>
@@ -40,7 +40,7 @@
 							echo 'Hora fin: ' . $proffesor['t']['finish_hour'] .':' . $finish_minute;
 							?></br>
 							<?php
-							echo $this->Html->link('enviar mensaje', array('controller' => 'messages', 'action' => 'add', '?' => array('name' => $name , 'surname' => $surname, 'receiver_id' => $proffesor['p']['id'], 'transmitter_id' => $userData[0]['User']['id'] )));
+							echo $this->Html->link('enviar mensaje', array('controller' => 'messages', 'action' => 'add', '?' => array('name' => $name , 'surname' => $surname, 'receiver_id' => $proffesor['p']['id'], 'transmitter_id' => AuthComponent::user('id') )));
 						
 						?>
 						</br></br>

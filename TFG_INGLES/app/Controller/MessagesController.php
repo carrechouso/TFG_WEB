@@ -4,11 +4,8 @@
 
 		 public function index(){
 		 	if($this->request->is('get')){
-		 		$userData = $this->Session->read('userData');
-		 		$this->set('messages', $this->Message->getMessages ($userData[0]['User']['id']));
-	 			$this->set('userId', $userData[0]['User']['id']);
-	 			$this->set('userType', $userData[0]['User']['type']);
-		 	}
+		 		$this->set('messages', $this->Message->getMessages (AuthComponent::user('id')));
+	 		}
 		}
 	
 		 public function add(){
@@ -21,9 +18,9 @@
 		 	}
 		 	if($this->request->is('post')){
 		 		$this->loadModel('User');
-		 		$userData = $this->Session->read('userData');
 		 		
-		 		$trans_auth = $this->User->find('count', array('conditions' => array('User.id = ' => $userData[0]['User']['id'], 'User.authenticated' => True)));
+		 		
+		 		$trans_auth = $this->User->find('count', array('conditions' => array('User.id = ' => AuthComponent::user('id'), 'User.authenticated' => True)));
 	 			$rec_auth = $this->User->find('count', array('conditions' => array('User.id = ' => $this->request->data['Message']['receiver_id'], 'User.authenticated' => True)));
 	 			if($trans_auth == 0){
 	 				$this->Flash->set('Tu Email aún no ha sido validado. No podrás mandar mensajes hasta que haya sido validado');

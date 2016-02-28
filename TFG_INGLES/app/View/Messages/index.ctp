@@ -6,11 +6,11 @@
 		?>
 		
 			<?php
-				if($message['m']['transmitter_id'] == $userId){
+				if($message['m']['transmitter_id'] == AuthComponent::user('id')){
 					?>
 		<li>
 			<?php
-					if($userType == 'admin' || $userType == 'alumno'){
+					if(AuthComponent::user('type') == 'admin' || AuthComponent::user('type') == 'alumno'){
 						
 						echo 'Emisor: ' . $message['a']['name'] . ' ' . $message['a']['surname'];
 						?></br>
@@ -41,11 +41,11 @@
 					?>
 						</li>
 					<?php
-				}else if($message['m']['receiver_id'] == $userId){
+				}else if($message['m']['receiver_id'] == AuthComponent::user('id')){
 					?>
 					<li>
 					<?php
-					if($userType == 'admin' || $userType == 'alumno'){
+					if(AuthComponent::user('type') == 'admin' || AuthComponent::user('type') == 'alumno'){
 					
 						echo 'Emisor: ' . $message['p']['name'] . ' ' . $message['p']['surname'];
 						?></br>

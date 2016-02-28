@@ -3,11 +3,11 @@
 
 
 
-	 echo $this->Form->Input('name',array('label' => '', 'value' => 'Nombre: ' . $name, 'type' => 'text', 'disabled' => 'disabled'));
-	 echo $this->Form->Input('surname',array('label' => '', 'value' => 'Apellidos: ' . $surname, 'type' => 'text', 'disabled' => 'disabled'));
-	 echo $this->Form->Input('username',array('label' => '', 'value' => 'Nombre de Usuario: ' . $username, 'type' => 'text', 'disabled' => 'disabled'));
+	 echo $this->Form->Input('name',array('label' => '', 'value' => 'Nombre: ' . AuthComponent::user('name'), 'type' => 'text', 'disabled' => 'disabled'));
+	 echo $this->Form->Input('surname',array('label' => '', 'value' => 'Apellidos: ' . AuthComponent::user('surname'), 'type' => 'text', 'disabled' => 'disabled'));
+	 echo $this->Form->Input('username',array('label' => '', 'value' => 'Nombre de Usuario: ' . AuthComponent::user('username'), 'type' => 'text', 'disabled' => 'disabled'));
 	 
-	 if ($validate == 1)
+	 if (AuthComponent::user('authenticated') == 1)
 	 	echo $this->Form->Input('email',array('label' => '', 'value' => 'Email validado: ' . $email, 'type' => 'text', 'disabled' => 'disabled'));
 	 else{
 	 	echo $this->Form->Input('savedEmail',array('label' => '', 'value' => 'Email sin validar: ' . $email, 'type' => 'text', 'disabled' => 'disabled'));

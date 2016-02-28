@@ -3,9 +3,6 @@
 <ul>
 	<?php
 	
-	$userData = $this->Session->read('userData');
-	$userType = $this->Session->read('userType');
-	//print_r($tutorias);
 	foreach ($tutorials as $row) {
 		$min_inicio = $row['Tutorial']['start_minute'];
 		$min_fin = $row['Tutorial']['finish_minute'];
@@ -16,8 +13,8 @@
 		if($min_fin == '0')
 			$min_fin = '00';
 
-		if( $userType == 'profesor' ){
-			if($row['Tutorial']['user_id'] == $userData[0]['User']['id']){
+		if( AuthComponent::user('type') == 'profesor' ){
+			if($row['Tutorial']['user_id'] == AuthComponent::user('id')){
 			?>
 				<li> <?php echo $row['Subject']['name'] . ' ' .$row['User']['name'] . ' ' .$row['User']['surname'] . ' ' . $row['Tutorial']['day'] . ' de ' . $row['Tutorial']['start_hour']. ':' . $min_inicio. ' a ' . $row['Tutorial']['finish_hour']. ':' . $min_fin. '  '; 
 					?></br><?php
@@ -30,7 +27,7 @@
 				</li>
 				<?php 
 			}
-		}else if( $userType == 'admin' ){
+		}else if( AuthComponent::user('type')== 'admin' ){
 			?>
 			<li> <?php echo $row['Subject']['name'] . ' ' .$row['User']['name'] . ' ' .$row['User']['surname'] . ' ' . $row['Tutorial']['day'] . ' de ' . $row['Tutorial']['start_hour']. ':' . $min_inicio. ' a ' . $row['Tutorial']['finish_hour']. ':' . $min_fin. '  '; 
 					?></br><?php

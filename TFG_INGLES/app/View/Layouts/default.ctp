@@ -42,13 +42,13 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>
 		<div id="content">
-			<?php if(  $_SERVER['REQUEST_URI'] != "/TFG/" &&  $_SERVER['REQUEST_URI'] != "/TFG/pages/home"){
+			<?php if($this->Session->check('Auth.User')){
 				echo $this->Form->create('User', array('url' => array('controller' => 'users', 'action' => 'logout')));
 				echo $this->Form->end('cerrar sesión');
 			
 			}?>
 			<?php echo $this->Flash->render(); ?>
-
+			<?php echo $this->fetch('auth'); ?>
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">

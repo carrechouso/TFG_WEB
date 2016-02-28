@@ -4,14 +4,11 @@
 
 <?php 
 
-	$userData = $this->Session->read('userData');
-	$userType = $this->Session->read('userType');
-
-	echo 'tipoUsuario:' . $userType;
+	echo 'tipoUsuario:' . AuthComponent::user('type');
 	?>
 	</br></br>
 	<?php
-	if( $userType == 'admin'){
+	if( AuthComponent::user('type') == 'admin'){
 		
 		echo $this->Html->link("Dar de alta a profesor",array('controller' => 'Users', 'action' => 'addProffesor'));
 		?></br>
@@ -43,7 +40,7 @@
 	?>
 	<?php
 	}
-	if( $userType != 'profesor'){
+	if( AuthComponent::user('type') != 'profesor'){
 		?>
 		</br>
 		<?php

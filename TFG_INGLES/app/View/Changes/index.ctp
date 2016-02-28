@@ -2,8 +2,7 @@
 
 <ul>
 	<?php
-		$userData = $this->Session->read('userData');
-		$userType = $this->Session->read('userType');
+		
 		//print_r($tutorias);
 		foreach ($tutorials as $row) {
 			
@@ -21,9 +20,9 @@
 			if($min_fin == '0')
 				$min_fin = '00';
 			
-			if( $userType == 'profesor' ){
+			if( AuthComponent::user('type') == 'profesor' ){
 				
-				if($row['c']['user_id'] == $userData[0]['User']['id']){
+				if($row['c']['user_id'] == AuthComponent::user('id')){
 				?>
 					<li> <?php echo $row['p']['name'] . ' ' .$row['p']['surname'] . ' día ' .$dia . ' tutorías de ' . $row['a']['name'] . ' son desde las '. $row['c']['start_hour'] . ':' . $min_inicio. ' hasta las ' . $row['c']['finish_hour'] . ':' . $min_fin . "\n\r" . 'La tutoría sustituida era el día ' . $diaViejo . ' en ' . $row['c']['place'];
 						?>
@@ -31,7 +30,7 @@
 						<?php
 						echo $this->Form->postLink(  'Eliminar cambio puntual', array('action' => 'delete', $row['c']['id']), array('confirm' => __('¿Seguro que quieres eliminar el cambio puntual? ') . $row['a']['name'] .'?')); 
 				}
-			}else if ($userType == 'admin'){
+			}else if (AuthComponent::user('type') == 'admin'){
 				
 				?>
 					<li> <?php echo $row['p']['name'] . ' ' .$row['p']['surname'] . ' día ' .$dia . ' tutorías de ' . $row['a']['name'] . ' son desde las '. $row['c']['start_hour'] . ':' . $min_inicio. ' hasta las ' . $row['c']['finish_hour'] . ':' . $min_fin . ' en ' . $row['c']['place']; 

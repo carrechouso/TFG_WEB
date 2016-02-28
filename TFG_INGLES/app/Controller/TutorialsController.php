@@ -3,57 +3,71 @@
 
 		 public function index(){
 
-			if($this->request->is('get')){
+			if($this->request->is('get') && ( AuthComponent::user('type') == 'admin' || AuthComponent::user('type') == 'profesor' )){
 				$data = $this->Tutorial->find('all');
 				$this->set('tutorials', $data);
+			}else{
+				$this->Flash->set('No estas autorizado a entrar en esta zona');
+				return $this->redirect(array('controller' => 'users', 'action' => 'index'));
 			}
 		}
 	
 		 public function add(){
 
-		 	if($this->request->is('post')){
-		 		
-		 		$userType = $this->Session->read('userType');
-				$this->loadModel('User');
-				$prof = $this->User->find('count', array('conditions'=> array('User.username =' => $this->request->data['Tutorial']['user_id'])));					
-					if($prof != 0){
+		 	if(AuthComponent::user('type') == 'admin' || AuthComponent::user('type') == 'profesor'){
+			 	if($this->request->is('post')){
+			 		
+			 		
+					$this->loadModel('User');
+					$prof = $this->User->find('count', array('conditions'=> array('User.username =' => $this->request->data['Tutorial']['user_id'])));					
+						if($prof != 0){
+						
+							$id_P = $this->User->find('all', array('conditions'=> array('User.username =' => $this->request->data['Tutorial']['user_id'])));		
+							$id_proffesor = $id_P[0]['User']['id']; 
+						}
 					
-						$id_P = $this->User->find('all', array('conditions'=> array('User.username =' => $this->request->data['Tutorial']['user_id'])));		
-						$id_proffesor = $id_P[0]['User']['id']; 
-					}
-				
-				$this->loadModel('Subject');
-				$subj = $this->Subject->find('count', array('conditions'=> array('Subject.code =' => $this->request->data['Tutorial']['subject_id'])));
+					$this->loadModel('Subject');
+					$subj = $this->Subject->find('count', array('conditions'=> array('Subject.code =' => $this->request->data['Tutorial']['subject_id'])));
 
-				if($prof == 1 && $subj == 1){
-			 		$id_S = $this->Subject->find('all', array('conditions'=> array('Subject.code =' => $this->request->data['Tutorial']['subject_id'])));
-			 		$this->loadModel('Impart');
-			 		$num = $this->Impart->find('count', array('conditions' => array('subject_id' => $id_S[0]['Subject']['id'], 'user_id' => $id_proffesor)));
-			 		if($num == 0){
-			 			$this->Flash->set('El profesor no esta dado de alto en la asignatura como docente');
-			 		}else{
-			 			if($this->Tutorial->validates()){
-				 			
-				 			$save = array('subject_id' => $id_S[0]['Subject']['id'], 'user_id' => $id_proffesor, 'day' => $this->request->data['Tutorial']['day'], 'place' => $this->request->data['Tutorial']['place'], 'start_hour' => $this->request->data['Tutorial']['start_hour']['hour'], 'finish_hour' => $this->request->data['Tutorial']['finish_hour']['hour'], 'start_minute' => $this->request->data['Tutorial']['start_minute']['min'], 'finish_minute' => $this->request->data['Tutorial']['finish_minute']['min']);
-				 			
-				 			$this->Tutorial->save($save);
-		 					$data = $this->Tutorial->find('all');
-							$this->set('tutorials', $data);
-		 					$this->Flash->success('Tutoria registrada correctamente');
-							return $this->redirect(array('controller' => 'Tutorials', 'action' => 'index'));
+					if($prof == 1 && $subj == 1){
+				 		$id_S = $this->Subject->find('all', array('conditions'=> array('Subject.code =' => $this->request->data['Tutorial']['subject_id'])));
+				 		$this->loadModel('Impart');
+				 		$num = $this->Impart->find('count', array('conditions' => array('subject_id' => $id_S[0]['Subject']['id'], 'user_id' => $id_proffesor)));
+				 		if($num == 0){
+				 			$this->Flash->set('El profesor no esta dado de alto en la asignatura como docente');
+				 		}else{
+				 			if($this->Tutorial->validates()){
+					 			
+					 			$save = array('subject_id' => $id_S[0]['Subject']['id'], 'user_id' => $id_proffesor, 'day' => $this->request->data['Tutorial']['day'], 'place' => $this->request->data['Tutorial']['place'], 'start_hour' => $this->request->data['Tutorial']['start_hour']['hour'], 'finish_hour' => $this->request->data['Tutorial']['finish_hour']['hour'], 'start_minute' => $this->request->data['Tutorial']['start_minute']['min'], 'finish_minute' => $this->request->data['Tutorial']['finish_minute']['min']);
+					 			
+					 			$this->Tutorial->save($save);
+			 					$data = $this->Tutorial->find('all');
+								$this->set('tutorials', $data);
+			 					$this->Flash->success('Tutoria registrada correctamente');
+								return $this->redirect(array('controller' => 'Tutorials', 'action' => 'index'));
+					 		}
 				 		}
+			 		}else{
+			 			$this->Flash->set($prof .' Id de profesor y/o asignatura incorrecta ' . $subj);
 			 		}
-		 		}else{
-		 			$this->Flash->set($prof .' Id de profesor y/o asignatura incorrecta ' . $subj);
-		 		}
-		 	}
+			 	}
+			 }else{
+			 	$this->Flash->set('No estas autorizado a entrar en esta zona');
+				return $this->redirect(array('controller' => 'users', 'action' => 'index'));
+			 }
 		 }
 
 		 public function change(){
-		 	if($this->request->is('post')){
-		 		$this->set('id_tutorial',$this->request->data['Tutorial']['tutorial']);
-		 		$this->set('id_user',$this->request->data['Tutorial']['proffesor']);
-		 	}
+			
+			if(AuthComponent::user('type') == 'admin' || AuthComponent::user('type') == 'profesor'){	 	
+			 	if($this->request->is('post')){
+			 		$this->set('id_tutorial',$this->request->data['Tutorial']['tutorial']);
+			 		$this->set('id_user',$this->request->data['Tutorial']['proffesor']);
+			 	}
+			 }else{
+			 	$this->Flash->set('No estas autorizado a entrar en esta zona');
+				return $this->redirect(array('controller' => 'users', 'action' => 'index'));	
+			 }
 		 }
 
 
@@ -80,7 +94,7 @@
 
  				$date = new DateTime($dateStart[2] . '-' . $dateStart[0] . '-' .$dateStart[1]);
  				
-			 	$load = "BEGIN:VCALENDAR" . $eol .
+			 	echo "BEGIN:VCALENDAR" . $eol .
 					 	"VERSION:2.0" . $eol .
 					 	"PRODID:-//project/author//NONSGML v1.0//EN" . $eol .
 					 	"CALSCALE:GREGORIAN" . $eol;
@@ -135,7 +149,7 @@
 				 						$vend = $dateArray[0] . $dateArray[1] . $dateArray[2] . 'T' . $finishHour . $finishMinute . '00' . 'Z';
 				 						$vstart = $dateArray[0] . $dateArray[1] . $dateArray[2] . 'T' . $startHour . $startMinute . '00' . 'Z';
 			 							
-			 							$load = $load ."BEGIN:VEVENT" . $eol .
+			 							echo "BEGIN:VEVENT" . $eol .
 	    									   "DTEND;TZID=Europe/Madrid:" . $vend . $eol .
 											   "UID:" . $row['Subject']['name'] . $row['User']['id'] . $row['Tutorial']['day'] .$startHour . $eol .
 											   "DTSTAMP:" . $this->dateToCal(time()) . $eol .
@@ -171,7 +185,7 @@
 				 						$vstart = $dateArray[0] . $dateArray[1] . $dateArray[2] . 'T' . $startHour . $startMinute . '00' . 'Z';
 
 
-				 							$load = $load ."BEGIN:VEVENT" . $eol .
+				 							echo "BEGIN:VEVENT" . $eol .
 	    									   "DTEND;TZID=Europe/Madrid:" . $vend . $eol .
 											   "UID:" . $row['Subject']['name'] . $row['User']['id'] . $row['Tutorial']['day'] .$startHour . $eol .
 											   "DTSTAMP:" . $this->dateToCal(time()) . $eol .
@@ -181,26 +195,21 @@
 											   "DTSTART;TZID=Europe/Madrid:" . $vstart . $eol .
 											   "END:VEVENT" . $eol;	
 				 						}
-
-
-			 						}
-			 						
+									}
 			 					}
 							}
 						}
 	 				}
 	 			}
-	 			$load = $load . "END:VCALENDAR";
+
+	 			echo "END:VCALENDAR";
 	 			$filename="Event-Tutorias.ics";
 				// Set the headers
 			   	header( "Content-Type: text/calendar; charset=UTF-8");
 			   	header('Content-Disposition: attachment; filename=' . $filename);
-			   	header('Content-Length: ' . strlen($load));
+			   	//header('Content-Length: ' . strlen($load));//non o podo por porque non sei a lonxitode o facer os echo
 			  	header('Connection: close');
-			    // Dump load
-			    // $load = preg_replace('/[\s]/', ' ', $load);
-
-			   echo $load;exit;
+			  	exit;
 	 			
 	 			// duracion cuatrimestre controlar?
 	 		}
